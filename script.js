@@ -62,6 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!localStorage.getItem('token')) return (location.href = "./auth.html");
   }
 
-  Object.assign(window, { checkRole, logout, API_BASE_URL, isAdmin: false });
+  // Object.assign(window, { checkRole, logout, API_BASE_URL, isAdmin: false });
   checkRole();
 });

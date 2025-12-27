@@ -3,3 +3,8 @@
     margin-bottom: 8px;
     padding: 6px;
 }
+
+.product-info{
+    display: flex;
+    justify-content: space-around;
+}

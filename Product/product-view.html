@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Создание товара</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="./products.css" />
+  </head>
+  <body>
+    <header><h1>Лабораторная работа №3</h1></header>
+    <main>
+      <div id="product">
+        <div id="product-card">
+          <div class="product-info">
+            <img
+              src="../assets/no_product_img.jpeg"
+              alt=""
+              id="article-img"
+              width="300px"
+            />
+            <div>
+              <h3 id="product-name"></h3>
+              <p><span id="price"></span> ₽</p>
+              <p>Характеристики</p>
+              <table border="1">
+                <tr>
+                  <td>Категория</td>
+                  <td id="category"></td>
+                </tr>
+                <tr>
+                  <td>Бренд</td>
+                  <td id="brand"></td>
+                </tr>
+                <tr>
+                  <td>Кол-во на складе</td>
+                  <td id="stock"></td>
+                </tr>
+                <tr>
+                  <td>Артикул</td>
+                  <td id="article-id"></td>
+                </tr>
+              </table>
+              <div id="article-list"></div>
+            </div>
+          </div>
+          <div>
+            <p>Описание</p>
+            <p id="description"></p>
+          </div>
+          <div id="galery"></div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+
+    <script type="module" src="./product.js"></script>
+    <script type="module" src="./product-view.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -88,4 +88,13 @@ export class Product {
       body: JSON.stringify(newProductData),
     });
   }
+
+  async getById(id) {
+    const response = await fetch(`${API_BASE_URL}/products/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const product = await response.json();
+    return product;
+  }
 }

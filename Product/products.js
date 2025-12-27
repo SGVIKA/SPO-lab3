@@ -1,5 +1,7 @@
 import { Product } from "./product.js";
 
+const product = new Product();
+
 function genPagination(productsData) {
   const paginationContainer = document.getElementById("pagination-container");
   paginationContainer.innerHTML = "";
@@ -26,13 +28,13 @@ function genPagination(productsData) {
       if (isAdmin || p.isVisible) {
         return `<div class="product-card ">
               <div>
-              <a href="./product.html?id=${p.id}">${p.productName}</a>
+              <a href="./product-view.html?id=${p.id}" id="product-${p.id}">${p.productName}</a>
               <p>${p.description}</p>
               </div>
               ${
                 isAdmin
                   ? `<div>
-                   <a href="./edit-product.html?id=${p.id}">Изменить</a>
+                   <a href="./product-edit.html?id=${p.id}">Изменить</a>
                    <button id="delete-btn-${p.id}">Удалить</button>
                     </div>`
                   : ""
@@ -44,7 +46,6 @@ function genPagination(productsData) {
     .join("");
 }
 
-const product = new Product();
 document.addEventListener("DOMContentLoaded", async () => {
   let currentFilters = { search: "", sortBy: "CreatedAt", orderBy: "desc" };
 
