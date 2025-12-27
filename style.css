@@ -1,0 +1,9 @@
+﻿.current-page {
+    background-color: aquamarine;
+}
+
+.invisible {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}

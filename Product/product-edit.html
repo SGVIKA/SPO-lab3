@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Создание товара</title>
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="./products.css" />
+  </head>
+  <body>
+    <header><h1>Лабораторная работа №3</h1></header>
+
+    <main>
+      <h2 id="product-edit-title"></h2>
+      <form id="create-product-form">
+        <div>
+          <label for="product-name">Название</label>
+          <input type="text" name="product-name" id="product-name" />
+        </div>
+
+        <div>
+          <label for="description">Описание</label>
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Расскажите про продукт..."
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="brand-select">Бренд</label>
+          <select id="brand-select" name="brand-select"></select>
+        </div>
+
+        <div>
+          <label for="category-select">Категория</label>
+          <select id="category-select" name="category-select"></select>
+        </div>
+
+        <div>
+          <input type="checkbox" id="is-visible" name="is-visible" />
+          <label for="is-visible">Опубликовать сразу</label>
+        </div>
+
+        <button type="submit" id="save-product-btn">Сохранить</button>
+      </form>
+    </main>
+
+    <script type="module" src="./product.js"></script>
+    <script type="module" src="../Brands/brand.js"></script>
+    <script type="module" src="../Categories/category.js"></script>
+    <script type="module" src="./product-edit.js"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>
