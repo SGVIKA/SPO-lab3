@@ -25,7 +25,20 @@ function saveCurrentProduct() {
   localStorage.setItem("currentProduct", JSON.stringify(currentProduct));
 }
 
+function updateTitle() {
+  const title = document.getElementById("product-edit-title");
+  if (currentProduct.id !== null) {
+    title.textContent = `Продукт № ${currentProduct.id}`;
+  } else {
+    title.textContent = `Новый продукт`;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  const saved = localStorage.getItem("currentProduct");
+  if (saved) {
+    currentProduct = { ...currentProduct, ...JSON.parse(saved) };
+  }
   //кэширование заполнения формы
   const productName = document.getElementById("product-name");
   const description = document.getElementById("description");
@@ -84,9 +97,17 @@ document
     saveCurrentProduct();
 
     if (currentProduct.id !== null) {
-      //обновление товара
-    } else {
+      const newProductData = {
+        id: currentProduct.id,
+        productName: currentProduct.productName,
+        description: currentProduct.description,
+        brandId: currentProduct.brandId,
+        categoryId: currentProduct.categoryId,
+        isVisible: currentProduct.isVisible,
+      };
 
+      await product.update(currentProduct.id, newProductData);
+    } else {
       const newProductData = {
         productName: currentProduct.productName,
         description: currentProduct.description,
@@ -95,8 +116,11 @@ document
       };
       const response = await product.create(newProductData);
       currentProduct.id = response.id;
-      document.getElementById(
-        "product-edit-title"
-      ).textContent = `Продукт № ${currentProduct.id}`;
+
+      if(currentProduct.isVisible){
+        await product.updateVisibility(currentProduct.id);
+      }
+
+      updateTitle();
     }
   });

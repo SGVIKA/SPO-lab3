@@ -2,7 +2,7 @@ const API_BASE_URL = "http://localhost:5004";
 let isAdmin = false;
 
 const checkRole = () => {
-  isAdmin = !!localStorage.token;
+  isAdmin = !!localStorage.getItem('token');
   window.isAdmin = isAdmin;
 };
 
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (path.includes("auth.html")) {
-    if (localStorage.token) return (location.href = "./index.html");
+    if (localStorage.getItem('token')) return (location.href = "./index.html");
     document.getElementById("login-form").onsubmit = (e) => {
       e.preventDefault();
       const email = document.getElementById("email").value;
@@ -54,12 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
       login(email, password);
     };
   } else if (path.includes("index.html") || path === "/") {
-    if (!localStorage.token) return (location.href = "./auth.html");
+    if (!localStorage.getItem('token')) return (location.href = "./auth.html");
     document.getElementById("userName").textContent =
       localStorage.getItem("userEmail");
     document.getElementById("logout").addEventListener("click", logout);
   } else if (path.includes("product-edit.html")) {
-    if (!localStorage.token) return (location.href = "./auth.html");
+    if (!localStorage.getItem('token')) return (location.href = "./auth.html");
   }
 
   Object.assign(window, { checkRole, logout, API_BASE_URL, isAdmin: false });

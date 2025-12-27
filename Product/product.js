@@ -33,7 +33,7 @@ export class Product {
   }
 
   async delete(productId) {
-    const token = localStorage.token;
+    const token = localStorage.getItem("token");
     await fetch(`${API_BASE_URL}/products/${productId}`, {
       method: "DELETE",
       headers: {
@@ -44,14 +44,7 @@ export class Product {
   }
 
   async create(productData) {
-    const token = localStorage.token;
-
-    // const productData = {
-    //   product: innerProductData,
-    // };
-
-    // console.log("Token:", token);
-    // console.log("ProductData:", JSON.stringify(productData, null, 2));
+    const token = localStorage.getItem("token");
     const response = await fetch(`${API_BASE_URL}/products`, {
       method: "POST",
       headers: {
@@ -70,7 +63,7 @@ export class Product {
   }
 
   async updateVisibility(id) {
-    const token = localStorage.token;
+    const token = localStorage.getItem("token");
     try {
       await fetch(`${API_BASE_URL}/products/${id}`, {
         method: "PATCH",
@@ -82,5 +75,17 @@ export class Product {
     } catch (error) {
       console.error("Ошибка:", error);
     }
+  }
+
+  async update(id, newProductData) {
+    const token = localStorage.getItem("token");
+    await fetch(`${API_BASE_URL}/products/${id}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProductData),
+    });
   }
 }
