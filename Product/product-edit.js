@@ -39,6 +39,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (saved) {
     currentProduct = { ...currentProduct, ...JSON.parse(saved) };
   }
+
+  //переход к редактированию продукта
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id");
+  if (productId) {
+    const productData = await product.getById(productId);
+    currentProduct.id = productData.id;
+    currentProduct.productName = productData.productName;
+    currentProduct.description = productData.description;
+    currentProduct.brandId = productData.brand.id;
+    currentProduct.categoryId = productData.category.id;
+    currentProduct.isVisible = productData.isVisible;
+  }
+
   //кэширование заполнения формы
   const productName = document.getElementById("product-name");
   const description = document.getElementById("description");
@@ -117,7 +131,7 @@ document
       const response = await product.create(newProductData);
       currentProduct.id = response.id;
 
-      if(currentProduct.isVisible){
+      if (currentProduct.isVisible) {
         await product.updateVisibility(currentProduct.id);
       }
 
