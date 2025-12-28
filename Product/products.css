@@ -4,7 +4,7 @@
     padding: 6px;
 }
 
-.product-info{
+.product-info-col{
     display: flex;
     justify-content: space-around;
 }

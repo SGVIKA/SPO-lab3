@@ -10,18 +10,18 @@
     <main>
       <div id="product">
         <div id="product-card">
-          <div class="product-info">
+          <div class="product-info-col">
             <img
               src="../assets/no_product_img.jpeg"
               alt=""
               id="article-img"
               width="300px"
             />
-            <div>
+            <div id="product-info">
               <h3 id="product-name"></h3>
               <p><span id="price"></span> ₽</p>
               <p>Характеристики</p>
-              <table border="1">
+              <table border="1" id="product-attributes">
                 <tr>
                   <td>Категория</td>
                   <td id="category"></td>
@@ -39,21 +39,23 @@
                   <td id="article-id"></td>
                 </tr>
               </table>
-              <div id="article-list"></div>
             </div>
           </div>
           <div>
             <p>Описание</p>
             <p id="description"></p>
           </div>
-          <div id="galery"></div>
+          
         </div>
       </div>
     </main>
     <footer></footer>
 
     <script type="module" src="./product.js"></script>
+    <script type="module" src="../article/article.js"></script>
     <script type="module" src="./product-view.js"></script>
     <script src="../script.js"></script>
   </body>
 </html>
+
+
