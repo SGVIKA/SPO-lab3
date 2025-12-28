@@ -26,16 +26,18 @@ function genPagination(productsData) {
   productsList.innerHTML = (productsData.data || [])
     .map((p) => {
       if (isAdmin || p.isVisible) {
-        return `<div class="product-card ">
-              <div>
-              <a href="./product-view.html?id=${p.id}" id="product-${p.id}">${p.productName}</a>
-              <p>${p.description}</p>
+        return `<div class="product-card">
+              <div class="card-info">
+              <a class="card-title" href="./product-view.html?id=${
+                p.id
+              }" id="product-${p.id}">${p.productName}</a>
+              <p class="card-description">${p.description}</p>
               </div>
               ${
                 isAdmin
-                  ? `<div>
-                   <a href="./product-edit.html?id=${p.id}">Изменить</a>
-                   <button id="delete-btn-${p.id}">Удалить</button>
+                  ? `<div class="card-btn-container">
+                   <a class="card-btn" href="./product-edit.html?id=${p.id}">Изменить</a>
+                   <button class="card-btn" id="delete-btn-${p.id}">Удалить</button>
                     </div>`
                   : ""
               }      
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .getElementById("buttons-container")
       .insertAdjacentHTML(
         "afterBegin",
-        `<a href="./product-edit.html" id="create-product-btn">Создать</a>`
+        `<a class="create-btn" href="./product-edit.html" id="create-product-btn">Создать</a>`
       );
   }
 

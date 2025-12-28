@@ -1,0 +1,48 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.welcom {
+    font-weight: 800;
+    font-size: 1.5rem;
+    align-self: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: var(--second-bg-color);
+    font-size: 1.25rem;
+    padding: 5%;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: white;
+}
+
+.logout-btn {
+    width: 50%;
+    align-self: center;
+    background-color: white;
+    border: 1px solid var(--main-color);
+    padding: 2%;
+    color: var(--main-color);
+}
+
+.logout-btn:hover{
+    background-color: var(--main-color);
+    color: white;
+}

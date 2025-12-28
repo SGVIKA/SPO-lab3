@@ -3,44 +3,65 @@
   <head>
     <title>Создание товара</title>
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="./products.css" />
+    <link rel="stylesheet" href="./product-edit.css" />
   </head>
   <body>
-    <header><h1>Лабораторная работа №3</h1></header>
+    <header class="header">
+      <h1 class="header-title">Лабораторная работа №3</h1>
+    </header>
 
-    <main>
-      <h2 id="product-edit-title"></h2>
-      <form id="create-product-form">
-        <div>
+    <main class="main">
+      <h2 class="title" id="product-edit-title"></h2>
+      <form class="create-product-form" id="create-product-form">
+        <div class="form-row">
           <label for="product-name">Название</label>
-          <input type="text" name="product-name" id="product-name" />
+          <input
+            class="form-field"
+            type="text"
+            name="product-name"
+            id="product-name"
+          />
         </div>
 
-        <div>
+        <div class="form-row">
           <label for="description">Описание</label>
           <textarea
+            class="form-field"
             name="description"
             id="description"
             placeholder="Расскажите про продукт..."
           ></textarea>
         </div>
 
-        <div>
+        <div class="form-row">
           <label for="brand-select">Бренд</label>
-          <select id="brand-select" name="brand-select"></select>
+          <select
+            class="form-field"
+            id="brand-select"
+            name="brand-select"
+          ></select>
         </div>
 
-        <div>
+        <div class="form-row">
           <label for="category-select">Категория</label>
-          <select id="category-select" name="category-select"></select>
+          <select
+            class="form-field"
+            id="category-select"
+            name="category-select"
+          ></select>
         </div>
 
-        <div>
-          <input type="checkbox" id="is-visible" name="is-visible" />
+        <div class="form-row">
+          <input
+            class="form-field"
+            type="checkbox"
+            id="is-visible"
+            name="is-visible"
+          />
           <label for="is-visible">Опубликовать сразу</label>
         </div>
 
-        <button type="submit" id="save-product-btn">Сохранить</button>
+        <button class="save-product-btn" type="submit" id="save-product-btn">Сохранить</button>
       </form>
     </main>
 

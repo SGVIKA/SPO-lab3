@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Создание товара</title>
+    <title>Товар</title>
     <link rel="stylesheet" href="../../style.css" />
-    <link rel="stylesheet" href="./products.css" />
+    <link rel="stylesheet" href="./product-view.css" />
   </head>
   <body>
-    <header><h1>Лабораторная работа №3</h1></header>
-    <main>
-      <div id="product">
+    <header class="header">
+      <h1 class="header-title">Лабораторная работа №3</h1>
+    </header>
+    <main class="main">
+      <div class="product" id="product">
         <div id="product-card">
           <div class="product-info-col">
             <img
+              class="product-img"
               src="../assets/no_product_img.jpeg"
               alt=""
               id="article-img"
               width="300px"
             />
-            <div id="product-info">
-              <h3 id="product-name"></h3>
-              <p><span id="price"></span> ₽</p>
-              <p>Характеристики</p>
-              <table border="1" id="product-attributes">
+            <div class="product-info" id="product-info">
+              <h3 class="title" id="product-name"></h3>
+              <p class="price"><span id="price">200</span> ₽</p>
+              <p class="title">Характеристики</p>
+              <table class="product-attributes" id="product-attributes">
                 <tr>
-                  <td>Категория</td>
-                  <td id="category"></td>
+                  <td class="first-col">Категория</td>
+                  <td class="second-col" id="category"></td>
                 </tr>
                 <tr>
-                  <td>Бренд</td>
-                  <td id="brand"></td>
+                  <td class="first-col">Бренд</td>
+                  <td class="second-col" id="brand"></td>
                 </tr>
                 <tr>
                   <td>Кол-во на складе</td>
-                  <td id="stock"></td>
+                  <td class="second-col" id="stock"></td>
                 </tr>
                 <tr>
-                  <td>Артикул</td>
-                  <td id="article-id"></td>
+                  <td class="first-col">Артикул</td>
+                  <td class="second-col" id="article-id"></td>
                 </tr>
               </table>
             </div>
           </div>
-          <div>
-            <p>Описание</p>
+          <div class="description-container">
+            <p class="title">Описание</p>
             <p id="description"></p>
           </div>
-          
         </div>
       </div>
     </main>
@@ -57,5 +59,3 @@
     <script src="../script.js"></script>
   </body>
 </html>
-
-

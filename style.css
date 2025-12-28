@@ -1,9 +1,109 @@
-﻿.current-page {
-    background-color: aquamarine;
+﻿/* ОБЩИЕ СТИЛИ */
+
+/* Подключение шрифта Roboto Condensed Regular */
+@font-face {
+    font-family: "Roboto Condensed Regular";
+    src: url(./assets/fonts/RobotoCondensed-Regular.woff2) format("woff2"),
+        url(./assets/fonts/RobotoCondensed-Regular.woff) format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    /* для плавной загрузки шрифта */
 }
+
+/* Определение CSS переменных для основных цветов и шрифтов */
+:root {
+    --main-font: "Roboto Condensed Regular";
+    --main-text-color: #000;
+    --main-color: #1a72c0;
+    --second-bg-color: #a7cdee;
+}
+
+/* Универсальное правило, чтобы box-sizing учитывал border и padding */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Установка базового размера шрифта для страницы */
+html {
+    font-size: 0.5 rem;
+}
+
+/* Установка основного шрифта и удаление отступов у body */
+body {
+    font-family: "Roboto Condensed Regular";
+    margin: 0;
+}
+
+/* Стили для ссылок: убираем подчеркивание, задаем цвет из переменной */
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+/* Картинки делают отзывчивыми: максимальная ширина 100%, сохраняется пропорция */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Сброс стилей списков: убираем маркеры, отступы и паддинги */
+.list-reset {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header, .main, .footer {
+    padding: 0 5%;
+}
+
+.header {
+    padding: 2%;
+    margin-bottom: 50px;
+    background-color: var(--second-bg-color);
+}
+
+.pagination-btn {
+    border: 1px solid var(--main-color);
+    background-color: white;
+    margin-left: 20px;
+    padding: 2%;
+    font-size: 1rem;
+}
+
+
+
+.current-page, .pagination-btn:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+
 
 .invisible {
     position: absolute;
     opacity: 0;
     pointer-events: none;
+}
+
+img {
+    object-fit: cover;
+}
+
+.title {
+    color: var(--main-color);
+    font-size: 2rem;
+    text-align: center;
 }

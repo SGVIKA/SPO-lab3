@@ -1,10 +1,104 @@
-.product-card{
-    border: 1px solid black;
-    margin-bottom: 8px;
-    padding: 6px;
+.buttons-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.product-info-col{
+.filter-btn, .create-btn {
+    margin-left: 16px;
+    border: 1px solid var(--main-color);
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--main-color);
+    background-color: white;
+}
+
+.filter-btn:hover, .create-btn:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.product-card {
+    border: 1px solid var(--main-color);
+    padding: 3% 5%;
+    margin-bottom: 16px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info {
+    width: 60%;
+}
+
+.card-title {
+    width: 100%;
+    font-size: 1.25rem;
+}
+
+.card-title:hover {
+    cursor: pointer;
+    color: var(--main-color);
+}
+
+.card-description {
+    width: 100%;
+}
+
+.card-btn-container {
+    width: 30%;
+    display: flex;
+}
+
+.card-btn {
+    margin-left: 6px;
+    background-color: var(--second-bg-color);
+    border: none;
+    padding: 5%;
+    width: 50%;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.card-btn:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    color: white;
+}
+
+
+
+
+
+.filter-container {
+    margin-bottom: 20px;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--main-color);
+    padding: 5%;
+}
+
+.form-item {
+    margin-bottom: 20px;
+    padding: 2%;
+    border: 1px solid var(--main-color);
+    background-color: white;
+    font-size: 1rem;
+}
+
+.form-btn {
+    /* color: var(--main-color); */
+    font-size: 1rem;
+    background-color: var(--second-bg-color);
+}
+
+.form-btn:hover {
+    background-color: var(--main-color);
+    color: white;
 }

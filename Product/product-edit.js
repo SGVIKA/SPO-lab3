@@ -28,7 +28,7 @@ function saveCurrentProduct() {
 function updateTitle() {
   const title = document.getElementById("product-edit-title");
   if (currentProduct.id !== null) {
-    title.textContent = `Продукт № ${currentProduct.id}`;
+    title.innerHTML = `Продукт № <span class="product-number">${currentProduct.id}</span>`;
   } else {
     title.textContent = `Новый продукт`;
   }
