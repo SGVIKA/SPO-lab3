@@ -21,7 +21,7 @@ export class Product {
       );
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        notify("error", `HTTP error! status: ${response.status}`);
       }
 
       const products = await response.json();
@@ -34,13 +34,19 @@ export class Product {
 
   async delete(productId) {
     const token = localStorage.getItem("token");
-    await fetch(`${API_BASE_URL}/products/${productId}`, {
+    const response = await fetch(`${API_BASE_URL}/products/${productId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
     });
+
+    if (!response.ok) {
+      notify("error", `HTTP error! status: ${response.status}`);
+    } else {
+      notify("success", "Успешно");
+    }
   }
 
   async create(productData) {
@@ -55,7 +61,9 @@ export class Product {
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      notify("error", `HTTP error! status: ${response.status}`);
+    } else {
+      notify("success", "Успешно");
     }
 
     const product = await response.json();
@@ -79,7 +87,7 @@ export class Product {
 
   async update(id, newProductData) {
     const token = localStorage.getItem("token");
-    await fetch(`${API_BASE_URL}/products/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/products/${id}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -87,6 +95,12 @@ export class Product {
       },
       body: JSON.stringify(newProductData),
     });
+
+    if (!response.ok) {
+      notify("error", `HTTP error! status: ${response.status}`);
+    } else {
+      notify("success", "Успешно");
+    }
   }
 
   async getById(id) {

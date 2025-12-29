@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./products.css" />
   </head>
   <body>
+    <div id="notifications"></div>
     <header class="header">
       <h1 class="header-title">Лабораторная работа №3</h1>
       <a class="link-btn" href="../index.html">Главная</a>
@@ -20,7 +21,13 @@
 
       <div class="filter-container invisible" id="filter-container">
         <form class="filter-form" id="filter-form">
-          <input class="form-item" type="text" id="search" name="search" placeholder="Найти..." />
+          <input
+            class="form-item"
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Найти..."
+          />
           <select class="form-item" name="sort-by" id="sort-select">
             <option value="CreatedAt">По дате создания</option>
             <option value="ProductName">По названию</option>
@@ -31,8 +38,12 @@
             <option value="asc">По возрастанию</option>
           </select>
 
-          <button class="form-item form-btn" type="submit" id="search-btn">Найти</button>
-          <button class="form-item form-btn" type="reset" id="reset-btn">Сбросить</button>
+          <button class="form-item form-btn" type="submit" id="search-btn">
+            Найти
+          </button>
+          <button class="form-item form-btn" type="reset" id="reset-btn">
+            Сбросить
+          </button>
         </form>
       </div>
 

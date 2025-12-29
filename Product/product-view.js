@@ -80,7 +80,6 @@ function updateArticleContent(article) {
   brandName.textContent = viewProduct.brand?.brandName || "--";
   description.textContent = viewProduct.description;
 
-  
   viewArticle = article;
   currentArticleId = article.id;
 
@@ -215,7 +214,9 @@ window.addEventListener("popstate", (event) => {
 document.addEventListener("DOMContentLoaded", async () => {
   await updateData();
 
-  updateArticleContent(viewArticle);
+  if (viewArticle) {
+    updateArticleContent(viewArticle);
+  }
 
   //функционал для админов
   if (localStorage.getItem("token")) {
