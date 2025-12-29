@@ -2,10 +2,7 @@
     font-size: 1.25rem;
 }
 
-.header {
-    display: flex;
-    justify-content: space-around;
-}
+
 
 .product-info-col {
     display: flex;
@@ -129,16 +126,3 @@ td {
     align-self: center;
 }
 
-.list-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    padding: 2%;
-    /* width: 15%; */
-    text-align: center;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
-}

@@ -107,3 +107,22 @@ img {
     font-size: 2rem;
     text-align: center;
 }
+
+.link-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2%;
+    /* width: 15%; */
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+}
