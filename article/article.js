@@ -22,4 +22,23 @@ export class Article {
     const article = await response.json();
     return article;
   }
+
+  async upload(currentArticleId, formData) {
+    const token = localStorage.getItem("token");
+    const response = await fetch(
+      `${API_BASE_URL}/articleNumbersImages/upload/${currentArticleId}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      }
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const result = await response.json();
+    return result;
+  }
 }
