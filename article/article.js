@@ -23,7 +23,7 @@ export class Article {
     return article;
   }
 
-  async upload(currentArticleId, formData) {
+  async uploadImage(currentArticleId, formData) {
     const token = localStorage.getItem("token");
     const response = await fetch(
       `${API_BASE_URL}/articleNumbersImages/upload/${currentArticleId}`,
@@ -41,4 +41,21 @@ export class Article {
     const result = await response.json();
     return result;
   }
+
+  // async create(imageData) {
+  //   const token = localStorage.getItem("token");
+  //   const response = await fetch(`${API_BASE_URL}/articleNumbersImages`, {
+  //     method: "POST",
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     },
+  //     body: imageData,
+  //   });
+
+  //   if (!response.ok) {
+  //     throw new Error(`HTTP error! status: ${response.status}`);
+  //   }
+  //   const result = await response.json();
+  //   return result;
+  // }
 }

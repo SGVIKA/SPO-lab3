@@ -2,7 +2,7 @@ import { Article } from "../article/article.js";
 import { Product } from "./product.js";
 
 const product = new Product();
-const article = new Article();
+const CLASS_article = new Article();
 
 let viewProduct;
 let articlesData;
@@ -21,10 +21,10 @@ async function updateData() {
     viewProduct = await product.getById(viewProductId);
 
     if (viewArticleId) {
-      viewArticle = await article.getById(viewArticleId);
-      articlesData = await article.getByProductId(viewProductId);
+      viewArticle = await CLASS_article.getById(viewArticleId);
+      articlesData = await CLASS_article.getByProductId(viewProductId);
     } else {
-      articlesData = await article.getByProductId(viewProductId);
+      articlesData = await CLASS_article.getByProductId(viewProductId);
       viewArticle = articlesData[0];
     }
   } else {
@@ -70,6 +70,17 @@ function addArticlesList() {
 }
 ////////////
 function updateArticleContent(article) {
+  const productName = document.getElementById("product-name");
+  const categoryName = document.getElementById("category");
+  const brandName = document.getElementById("brand");
+  const description = document.getElementById("description");
+
+  productName.textContent = viewProduct.productName;
+  categoryName.textContent = viewProduct.category?.categoryName || "--";
+  brandName.textContent = viewProduct.brand?.brandName || "--";
+  description.textContent = viewProduct.description;
+
+  
   viewArticle = article;
   currentArticleId = article.id;
 
@@ -102,7 +113,7 @@ function updateArticleContent(article) {
     `
     );
   });
-
+  //для админов
   if (localStorage.getItem("token")) {
     const galery = document.getElementById("galery");
     galery.innerHTML = "";
@@ -122,27 +133,53 @@ function updateArticleContent(article) {
       document.getElementById("add-img-form").classList.remove("invisible");
     });
 
-    const addImgForm = document.getElementById("add-img-form");
-    const imgInput = document.getElementById("img-input");
+    ////////////////
 
-    addImgForm.addEventListener("submit", async (e) => {
+    const updateBtn = document.getElementById("add-img-btn");
+    updateBtn.addEventListener("click", async (e) => {
       e.preventDefault();
+
+      const imgInput = document.getElementById("img-input");
+      if (!imgInput?.files[0]) {
+        // ✅ 1. ДОБАВИТЬ проверку
+        console.log("Выберите изображение!");
+        return;
+      }
 
       const formData = new FormData();
       formData.append("photo", imgInput.files[0]);
 
-      try {
-        await article.upload(currentArticleId, formData); // ✅ Вызов вашей функции
+      // const imageUrl = await article.upload(currentArticleId, formData);
+      // const imageData = {
+      //   articleNumberId: viewArticle.id,
+      //   imageUrl: imageUrl,
+      // };
+      // await article.create(imageData);
 
-        addImgForm.reset();
+      // await article.upload(currentArticleId, formData);
+
+      // imgInput.value = "";
+      // document.getElementById("add-img-form").classList.add("invisible");
+      // updateArticleContent(viewArticle);
+
+      try {
+        console.log("article:", article);
+        console.log("article.uploadImage:", article.uploadImage);
+        console.log("typeof article.uploadImage:", typeof article.uploadImage);
+
+        // ✅ 2. ДОБАВИТЬ try-catch
+        await CLASS_article.uploadImage(currentArticleId, formData);
+
+        imgInput.value = "";
         document.getElementById("add-img-form").classList.add("invisible");
 
-        // Обновляем данные
-        articlesData = await article.getByProductId(viewProductId);
+        // ✅ 3. ДОБАВИТЬ обновление данных с сервера
+        articlesData = await CLASS_article.getByProductId(viewProductId);
         viewArticle = articlesData.find((a) => a.id === currentArticleId);
-        updateArticleContent(viewArticle);
+        updateArticleContent(viewArticle); // ✅ Перерисует галерею
       } catch (error) {
         console.error("Ошибка загрузки:", error);
+        alert("Ошибка загрузки изображения");
       }
     });
   }

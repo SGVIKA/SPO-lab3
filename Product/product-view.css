@@ -2,6 +2,11 @@
     font-size: 1.25rem;
 }
 
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
 .product-info-col {
     display: flex;
     justify-content: space-between;
@@ -110,7 +115,7 @@ td {
     font-weight: 500;
 }
 
-.add-img-form{
+.add-img-form {
     display: flex;
     flex-direction: column;
     max-width: 90%;
@@ -119,7 +124,21 @@ td {
     padding: 5%;
 }
 
-.img-input{
+.img-input {
     margin-bottom: 20px;
     align-self: center;
+}
+
+.list-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2%;
+    /* width: 15%; */
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
 }
